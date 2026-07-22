@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarberShop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Encabezado / Navegación -->
+    <header class="header">
+        <div class="logo">BarberShop</div>
+        <nav class="nav">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#galeria">Galería</a>
+            <a href="#reservar">Reservar</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Hero con imagen de fondo -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay">
+            <h1>Estilo con precisión.</h1>
+            <p>Cortes clásicos y modernos, hechos por profesionales.</p>
+            <a href="#reservar" class="btn-primario">Reservar cita</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="servicios">
+        <h2>Nuestros servicios</h2>
+        <div class="lista-servicios">
+            <div class="servicio">
+                <h3>Corte clásico</h3>
+                <p>Corte tradicional a tijera y máquina.</p>
+                <span class="precio">$25.000</span>
+            </div>
+            <div class="servicio">
+                <h3>Corte + Barba</h3>
+                <p>Combo completo con arreglo de barba.</p>
+                <span class="precio">$40.000</span>
+            </div>
+            <div class="servicio">
+                <h3>Afeitado clásico</h3>
+                <p>Afeitado tradicional con navaja y toalla caliente.</p>
+                <span class="precio">$20.000</span>
+            </div>
+            <div class="servicio">
+                <h3>Diseño de barba</h3>
+                <p>Perfilado y diseño personalizado de barba.</p>
+                <span class="precio">$18.000</span>
+            </div>
+            <div class="servicio">
+                <h3>Corte infantil</h3>
+                <p>Corte especializado para niños.</p>
+                <span class="precio">$20.000</span>
+            </div>
+            <div class="servicio">
+                <h3>Tratamiento capilar</h3>
+                <p>Hidratación y cuidado profundo del cabello.</p>
+                <span class="precio">$35.000</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="galeria">
+        <h2>Nuestro trabajo</h2>
+        <div class="grid-galeria">
+            <div class="foto-galeria">
+                <img src="https://picsum.photos/seed/barber1/600/600" alt="Corte de cabello">
+            </div>
+            <div class="foto-galeria">
+                <img src="https://picsum.photos/seed/barber2/600/600" alt="Interior de la barbería">
+            </div>
+            <div class="foto-galeria">
+                <img src="https://picsum.photos/seed/barber3/600/600" alt="Arreglo de barba">
+            </div>
+            <div class="foto-galeria">
+                <img src="https://picsum.photos/seed/barber4/600/600" alt="Herramientas de barbería">
+            </div>
+            <div class="foto-galeria">
+                <img src="https://picsum.photos/seed/barber5/600/600" alt="Estilo de corte">
+            </div>
+            <div class="foto-galeria">
+                <img src="https://picsum.photos/seed/barber6/600/600" alt="Afeitado clásico">
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservar cita -->
+    <section id="reservar" class="reservar">
+        <h2>Reserva tu turno</h2>
+        <form class="formulario-cita" id="formularioCita">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="servicio">Servicio</label>
+            <select id="servicio" name="servicio" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="Corte clásico">Corte clásico</option>
+                <option value="Corte + Barba">Corte + Barba</option>
+                <option value="Afeitado clásico">Afeitado clásico</option>
+                <option value="Diseño de barba">Diseño de barba</option>
+                <option value="Corte infantil">Corte infantil</option>
+                <option value="Tratamiento capilar">Tratamiento capilar</option>
+            </select>
+
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="hora">Hora</label>
+            <input type="time" id="hora" name="hora" required>
+
+            <button type="submit" class="btn-primario">Confirmar reserva</button>
+        </form>
+    </section>
+
+    <!-- Contacto -->
+    <footer id="contacto" class="footer">
+        <h2>Contáctanos</h2>
+        <p>📍 Calle 123 #45-67, Bogotá</p>
+        <p>🕒 Lunes a Sábado, 9:00am - 7:00pm</p>
+        <p>📞 300 123 4567</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

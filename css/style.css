@@ -1,0 +1,301 @@
+/* ===== Variables de color y tipografía ===== */
+:root {
+    --fondo-oscuro: #1A1A1A;
+    --fondo-seccion: #242424;
+    --acento: #C9A15A;
+    --texto-claro: #F0EDE6;
+    --texto-gris: #B0ACA3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-claro);
+    line-height: 1.6;
+}
+
+/* ===== Header / Navegación ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--fondo-oscuro);
+    border-bottom: 2px solid var(--acento);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--acento);
+    text-transform: uppercase;
+}
+
+.nav a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: var(--acento);
+}
+
+/* ===== Hero con imagen de fondo ===== */
+.hero {
+    position: relative;
+    height: 90vh;
+    min-height: 500px;
+    background-image: url('https://picsum.photos/seed/barbershophero/1600/900');    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    background-color: rgba(26, 26, 26, 0.72);
+    padding: 60px 40px;
+    border-radius: 8px;
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--texto-claro);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--texto-gris);
+    margin-bottom: 30px;
+}
+
+.btn-primario {
+    display: inline-block;
+    background-color: var(--acento);
+    color: var(--fondo-oscuro);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primario:hover {
+    background-color: #b8905075;
+}
+
+/* ===== Servicios ===== */
+.servicios {
+    padding: 80px 50px;
+    background-color: var(--fondo-seccion);
+    text-align: center;
+}
+
+.servicios h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: var(--acento);
+}
+
+.lista-servicios {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.servicio {
+    background-color: var(--fondo-oscuro);
+    border: 1px solid var(--acento);
+    border-radius: 8px;
+    padding: 30px;
+    width: 250px;
+    transition: transform 0.3s;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+}
+
+.servicio h3 {
+    color: var(--texto-claro);
+    margin-bottom: 10px;
+}
+
+.servicio p {
+    color: var(--texto-gris);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--acento);
+}
+
+/* ===== Galería ===== */
+.galeria {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: var(--fondo-oscuro);
+}
+
+.galeria h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: var(--acento);
+}
+
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.foto-galeria {
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.foto-galeria:hover {
+    border-color: var(--acento);
+}
+
+.foto-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.foto-galeria:hover img {
+    transform: scale(1.08);
+}
+
+/* ===== Reservar cita (estilo "ticket") ===== */
+.reservar {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: var(--fondo-seccion);
+}
+
+.reservar h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--acento);
+}
+
+.formulario-cita {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--fondo-oscuro);
+    border: 2px dashed var(--acento);
+    border-radius: 10px;
+    padding: 40px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-cita label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--texto-gris);
+}
+
+.formulario-cita input,
+.formulario-cita select {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--texto-gris);
+    background-color: var(--fondo-seccion);
+    color: var(--texto-claro);
+    font-size: 1rem;
+}
+
+.formulario-cita button {
+    margin-top: 25px;
+}
+
+/* ===== Footer / Contacto ===== */
+.footer {
+    background-color: var(--fondo-oscuro);
+    text-align: center;
+    padding: 50px;
+    border-top: 2px solid var(--acento);
+}
+
+.footer h2 {
+    color: var(--acento);
+    margin-bottom: 20px;
+}
+
+.footer p {
+    color: var(--texto-gris);
+    margin-bottom: 8px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav a {
+        margin: 0 10px;
+    }
+
+    .hero {
+        height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-overlay {
+        padding: 30px 20px;
+    }
+
+    .lista-servicios {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-galeria {
+        grid-template-columns: 1fr;
+    }
+}
