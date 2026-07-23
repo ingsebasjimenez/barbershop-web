@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador - BarberShop</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="admin-body">
+
+    <header class="header">
+<div class="logo"><a href="{{ url_for('inicio') }}" class="logo-link">BarberShop</a></div>
+    </header>
+
+    <div class="logout-bar">
+        <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+    </div>
+
+    <section class="admin-panel">
+        <h1>Reservas</h1>
+
+        <table class="tabla-reservas">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Servicio</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Creada el</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reserva in reservas %}
+                <tr>
+                    <td>{{ reserva.id }}</td>
+                    <td>{{ reserva.nombre }}</td>
+                    <td>{{ reserva.servicio }}</td>
+                    <td>{{ reserva.fecha }}</td>
+                    <td>{{ reserva.hora }}</td>
+                    <td>{{ reserva.fecha_creacion }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">No hay reservas todavía.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+</body>
+</html>

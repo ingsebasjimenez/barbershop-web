@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BarberShop</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
     <!-- Encabezado / Navegación -->
-    <header class="header">
-        <div class="logo">BarberShop</div>
-        <nav class="nav">
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#galeria">Galería</a>
-            <a href="#reservar">Reservar</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+    <div class="encabezado-fijo">
+        <header class="header">
+    <div class="logo"><a href="{{ url_for('inicio') }}" class="logo-link">BarberShop</a></div>
+    <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#reservar">Reservar</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<div class="cuenta-bar">
+    {% if session.usuario_nombre %}
+        <span>Hola, {{ session.usuario_nombre }}</span>
+        <a href="{{ url_for('cuenta_logout') }}">Cerrar sesión</a>
+    {% else %}
+        <a href="{{ url_for('cuenta_login') }}">Iniciar sesión</a>
+        <a href="{{ url_for('registro') }}">Registrarme</a>
+    {% endif %}
+</div>
+</div>
 
     <!-- Hero con imagen de fondo -->
     <section id="inicio" class="hero">
@@ -93,31 +105,37 @@
 
     <!-- Reservar cita -->
     <section id="reservar" class="reservar">
-        <h2>Reserva tu turno</h2>
-        <form class="formulario-cita" id="formularioCita">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" required>
+    <h2>Reserva tu turno</h2>
 
-            <label for="servicio">Servicio</label>
-            <select id="servicio" name="servicio" required>
-                <option value="">Selecciona un servicio</option>
-                <option value="Corte clásico">Corte clásico</option>
-                <option value="Corte + Barba">Corte + Barba</option>
-                <option value="Afeitado clásico">Afeitado clásico</option>
-                <option value="Diseño de barba">Diseño de barba</option>
-                <option value="Corte infantil">Corte infantil</option>
-                <option value="Tratamiento capilar">Tratamiento capilar</option>
-            </select>
+    {% if session.usuario_nombre %}
+    <form class="formulario-cita" id="formularioCita">
+        <label for="servicio">Servicio</label>
+        <select id="servicio" name="servicio" required>
+            <option value="">Selecciona un servicio</option>
+            <option value="Corte clásico">Corte clásico</option>
+            <option value="Corte + Barba">Corte + Barba</option>
+            <option value="Afeitado clásico">Afeitado clásico</option>
+            <option value="Diseño de barba">Diseño de barba</option>
+            <option value="Corte infantil">Corte infantil</option>
+            <option value="Tratamiento capilar">Tratamiento capilar</option>
+        </select>
 
-            <label for="fecha">Fecha</label>
-            <input type="date" id="fecha" name="fecha" required>
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required>
 
-            <label for="hora">Hora</label>
-            <input type="time" id="hora" name="hora" required>
+        <label for="hora">Hora</label>
+        <input type="time" id="hora" name="hora" required>
 
-            <button type="submit" class="btn-primario">Confirmar reserva</button>
-        </form>
-    </section>
+        <button type="submit" class="btn-primario">Confirmar reserva</button>
+    </form>
+    {% else %}
+    <div class="aviso-login">
+        <p>Debes iniciar sesión para reservar tu cita.</p>
+        <a href="{{ url_for('cuenta_login') }}" class="btn-primario">Iniciar sesión</a>
+        <a href="{{ url_for('registro') }}" class="btn-secundario">Crear cuenta</a>
+    </div>
+    {% endif %}
+</section>
 
     <!-- Contacto -->
     <footer id="contacto" class="footer">
@@ -127,6 +145,6 @@
         <p>📞 300 123 4567</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

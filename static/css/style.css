@@ -1,0 +1,596 @@
+/* ===== Fuentes ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ===== Variables de color, tipografía y espaciado ===== */
+:root {
+    --fondo-oscuro: #1A1A1A;
+    --fondo-seccion: #242424;
+    --fondo-tarjeta: #2B2B2B;
+    --acento: #C9A15A;
+    --acento-oscuro: #8A6B3D;
+    --texto-claro: #F0EDE6;
+    --texto-gris: #B0ACA3;
+    --borde-sutil: rgba(201, 161, 90, 0.25);
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', 'Arial', sans-serif;
+
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --space-7: 96px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-claro);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Firma visual: doble línea bajo los títulos de sección */
+.servicios h2,
+.galeria h2,
+.reservar h2,
+.footer h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--space-3);
+}
+
+.servicios h2::after,
+.galeria h2::after,
+.reservar h2::after,
+.footer h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 5px;
+    border-top: 2px solid var(--acento);
+    border-bottom: 1px solid var(--acento);
+}
+
+/* ===== Header / Navegación ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) var(--space-6);
+    background-color: var(--fondo-oscuro);
+    border-bottom: 2px solid var(--acento);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--acento);
+    text-transform: uppercase;
+}
+
+.logo-link {
+    color: inherit;
+    text-decoration: none;
+}
+.nav a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    margin-left: var(--space-4);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: var(--acento);
+}
+
+/* ===== Barra de cuenta ===== */
+.cuenta-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-1) var(--space-6);
+    background-color: var(--fondo-seccion);
+    font-size: 0.82rem;
+    border-bottom: 1px solid var(--borde-sutil);
+}
+
+.cuenta-bar span {
+    color: var(--texto-gris);
+}
+
+.cuenta-bar a {
+    color: var(--acento);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cuenta-bar a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Hero con imagen de fondo ===== */
+.hero {
+    position: relative;
+    height: 90vh;
+    min-height: 500px;
+    background-image: url('https://picsum.photos/seed/barbershophero/1600/900');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    background-color: rgba(26, 26, 26, 0.78);
+    padding: var(--space-6) var(--space-5);
+    border-radius: 4px;
+    max-width: 700px;
+    border: 1px solid var(--borde-sutil);
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3.4rem;
+    margin-bottom: var(--space-3);
+    color: var(--texto-claro);
+    line-height: 1.15;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--texto-gris);
+    margin-bottom: var(--space-4);
+}
+
+.btn-primario {
+    display: inline-block;
+    background-color: var(--acento);
+    color: var(--fondo-oscuro);
+    padding: 14px 34px;
+    border: none;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primario:hover {
+    background-color: var(--acento-oscuro);
+    color: var(--texto-claro);
+}
+
+.btn-secundario {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--acento);
+    border: 1px solid var(--acento);
+    padding: 13px 31px;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-secundario:hover {
+    background-color: rgba(201, 161, 90, 0.1);
+}
+
+/* ===== Servicios ===== */
+.servicios {
+    padding: var(--space-7) var(--space-6);
+    background-color: var(--fondo-seccion);
+    text-align: center;
+}
+
+.servicios h2 {
+    font-size: 2.2rem;
+    margin-bottom: var(--space-6);
+    color: var(--acento);
+}
+
+.lista-servicios {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.servicio {
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 4px;
+    padding: var(--space-4);
+    width: 250px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+    border-color: var(--acento);
+}
+
+.servicio h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--texto-claro);
+    margin-bottom: var(--space-2);
+}
+
+.servicio p {
+    color: var(--texto-gris);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-3);
+}
+
+.precio {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--acento);
+}
+
+/* ===== Galería ===== */
+.galeria {
+    padding: var(--space-7) var(--space-6);
+    text-align: center;
+    background-color: var(--fondo-oscuro);
+}
+
+.galeria h2 {
+    font-size: 2.2rem;
+    margin-bottom: var(--space-6);
+    color: var(--acento);
+}
+
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.foto-galeria {
+    overflow: hidden;
+    border-radius: 4px;
+    aspect-ratio: 1 / 1;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.foto-galeria:hover {
+    border-color: var(--acento);
+}
+
+.foto-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.foto-galeria:hover img {
+    transform: scale(1.08);
+}
+
+/* ===== Reservar cita ===== */
+.reservar {
+    padding: var(--space-7) var(--space-6);
+    text-align: center;
+    background-color: var(--fondo-seccion);
+}
+
+.reservar h2 {
+    font-size: 2.2rem;
+    margin-bottom: var(--space-5);
+    color: var(--acento);
+}
+
+.formulario-cita {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--fondo-oscuro);
+    border: 2px dashed var(--acento);
+    border-radius: 6px;
+    padding: var(--space-5);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-cita label {
+    margin-top: var(--space-2);
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--texto-gris);
+}
+
+.formulario-cita input,
+.formulario-cita select {
+    padding: 11px;
+    border-radius: 3px;
+    border: 1px solid var(--texto-gris);
+    background-color: var(--fondo-seccion);
+    color: var(--texto-claro);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.formulario-cita button {
+    margin-top: var(--space-3);
+}
+
+.aviso-login {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--fondo-oscuro);
+    border: 2px dashed var(--acento);
+    border-radius: 6px;
+    padding: var(--space-5);
+    text-align: center;
+}
+
+.aviso-login p {
+    color: var(--texto-gris);
+    margin-bottom: var(--space-4);
+}
+
+.aviso-login a {
+    display: inline-block;
+    margin: 5px;
+}
+
+/* ===== Footer / Contacto ===== */
+.footer {
+    background-color: var(--fondo-oscuro);
+    text-align: center;
+    padding: var(--space-5);
+    border-top: 2px solid var(--acento);
+}
+
+.footer h2 {
+    font-size: 1.8rem;
+    color: var(--acento);
+    margin-bottom: var(--space-3);
+}
+
+.footer p {
+    color: var(--texto-gris);
+    margin-bottom: var(--space-1);
+}
+
+/* ===== Panel de administrador ===== */
+.admin-body {
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-claro);
+}
+
+.admin-tag {
+    color: var(--acento);
+    font-size: 0.8rem;
+    margin-left: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-panel {
+    padding: var(--space-5) var(--space-6);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.admin-panel h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--acento);
+    margin-bottom: var(--space-3);
+}
+
+.tabla-reservas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-3);
+}
+
+.tabla-reservas th,
+.tabla-reservas td {
+    padding: 12px var(--space-2);
+    text-align: left;
+    border-bottom: 1px solid var(--fondo-seccion);
+}
+
+.tabla-reservas th {
+    color: var(--acento);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.tabla-reservas tr:hover {
+    background-color: var(--fondo-seccion);
+}
+
+/* ===== Login / Registro ===== */
+.login-panel {
+    max-width: 400px;
+    margin: var(--space-7) auto;
+    text-align: center;
+}
+
+.login-panel h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--acento);
+    margin-bottom: var(--space-4);
+}
+
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: var(--fondo-seccion);
+    border: 2px dashed var(--acento);
+    border-radius: 6px;
+    padding: var(--space-5);
+}
+
+.formulario-login label {
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--texto-gris);
+}
+
+.formulario-login input {
+    padding: 11px;
+    border-radius: 3px;
+    border: 1px solid var(--texto-gris);
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-claro);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: var(--space-3);
+}
+
+.formulario-login button {
+    margin-top: 5px;
+}
+
+.login-error {
+    color: #e07070;
+    margin-bottom: var(--space-3);
+    font-size: 0.9rem;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: var(--space-3);
+    color: var(--texto-gris);
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: var(--acento);
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.logout-bar {
+    text-align: right;
+    padding: var(--space-2) var(--space-6) 0;
+}
+
+.logout-bar a {
+    color: var(--texto-gris);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.logout-bar a:hover {
+    color: var(--acento);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .cuenta-bar {
+        padding: var(--space-1) var(--space-3);
+    }
+
+    .nav a {
+        margin: 0 var(--space-1);
+    }
+
+    .hero {
+        height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-overlay {
+        padding: var(--space-4) var(--space-3);
+    }
+
+    .servicios,
+    .galeria,
+    .reservar {
+        padding: var(--space-6) var(--space-3);
+    }
+
+    .lista-servicios {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-galeria {
+        grid-template-columns: 1fr;
+    }
+}
+
+.encabezado-fijo {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
